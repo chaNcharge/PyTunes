@@ -14,3 +14,4 @@ Supports mp3, m4a, wav, ogg (but you can add more yourself in the source)
 
 ## Notes
 This was built on a Mac, so fixing issues on Windows is much harder for me.
+I'm just one person working on a personal project
