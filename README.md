@@ -14,7 +14,7 @@ No unnecessary clutter or other stuff
 Supports mp3, m4a, wav, ogg (but you can add more yourself in the source)
 
 ## Screenshot
-![alt tag](insert url here)
+![alt tag](https://github.com/chaNcharge/PyTunes/blob/master/screenshot.png)
 
 ## Notes
 This was built on a Mac, so fixing issues on Windows is much harder for me.
