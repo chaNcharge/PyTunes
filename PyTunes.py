@@ -1,3 +1,6 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
 import sys
 from PyQt5.QtGui import QPalette, QColor
 from PyQt5.QtCore import QUrl, QDirIterator, Qt
