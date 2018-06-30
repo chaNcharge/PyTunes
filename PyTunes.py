@@ -97,9 +97,7 @@ class App(QMainWindow):
         self.playlist.currentMediaChanged.connect(self.songChanged)
 
     def openFile(self):
-        print("File button clicked!")
         song = QFileDialog.getOpenFileName(self, "Open Song", "~", "Sound Files (*.mp3 *.ogg *.wav *.m4a)")
-        print(song[0])
 
         if song[0] != '':
             url = QUrl.fromLocalFile(song[0])
@@ -108,22 +106,17 @@ class App(QMainWindow):
                 self.player.setPlaylist(self.playlist)
                 self.player.play()
                 self.userAction = 1
-                print(self.playlist.mediaCount())
             else:
                 self.playlist.addMedia(QMediaContent(url))
-                print(self.playlist.mediaCount())
 
     def addFiles(self):
-        print("Folder button clicked!")
         if self.playlist.mediaCount() != 0:
             self.folderIterator()
-            print(self.playlist.mediaCount())
         else:
             self.folderIterator()
             self.player.setPlaylist(self.playlist)
             self.player.playlist().setCurrentIndex(0)
             self.player.play()
-            print(self.playlist.mediaCount())
             self.userAction = 1
     
     def folderIterator(self):
@@ -134,16 +127,12 @@ class App(QMainWindow):
             while it.hasNext():
                 if it.fileInfo().isDir() == False and it.filePath() != '.':
                     fInfo = it.fileInfo()
-                    print(it.filePath(), fInfo.suffix())
                     if fInfo.suffix() in ('mp3', 'ogg', 'wav', 'm4a'):
-                        print('added file', fInfo.fileName())
                         self.playlist.addMedia(QMediaContent(QUrl.fromLocalFile(it.filePath())))
                 it.next()
             if it.fileInfo().isDir() == False and it.filePath() != '.':
                 fInfo = it.fileInfo()
-                print(it.filePath(), fInfo.suffix())
                 if fInfo.suffix() in ('mp3', 'ogg', 'wav', 'm4a'):
-                    print('added file', fInfo.fileName())
                     self.playlist.addMedia(QMediaContent(QUrl.fromLocalFile(it.filePath())))
     
     def playhandler(self):
@@ -151,7 +140,6 @@ class App(QMainWindow):
             self.openFile()
         elif self.playlist.mediaCount() != 0:
             self.player.play()
-            print(self.playlist.mediaCount())
             self.userAction = 1
 
     def pausehandler(self):
@@ -162,7 +150,6 @@ class App(QMainWindow):
         self.userAction = 0
         self.player.stop()
         self.playlist.clear()
-        print("Playlist cleared!")
         self.statusBar().showMessage("Stopped and cleared playlist")
 
     def changeVolume(self, value):
@@ -176,7 +163,6 @@ class App(QMainWindow):
     
     def shufflelist(self):
         self.playlist.shuffle()
-        print("Shuffled playlist!")
 
     def nextSong(self):
         if self.playlist.mediaCount() == 0:
