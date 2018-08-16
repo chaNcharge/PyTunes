@@ -23,7 +23,7 @@ before_script:
   - virtualenv venv
   - source venv/bin/activate
 
-release:
+linuxrelease:
   script:
     - pip install pyinstaller pyqt5
     - pyinstaller --onefile PyTunes.py
