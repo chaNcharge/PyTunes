@@ -28,4 +28,5 @@ build:
     - pip install pyinstaller pyqt5
     - pyinstaller --onefile PyTunes.py
   artifacts:
-    - dist
+    paths:
+      - dist
